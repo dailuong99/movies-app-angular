@@ -6,6 +6,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Icons');
 
 @import '~primeflex/primeflex.css';
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/lara-light-indigo/theme.css';
+@import '~primeng/resources/primeng.min.css';
 
 body {
   font-family: 'Dancing Script', cursive;
@@ -43,4 +46,9 @@ a {
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.container {
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
