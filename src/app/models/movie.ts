@@ -5,7 +5,7 @@ export interface Movies {
     id: number;
     original_language: string;
     original_title: string;
-    overview: string; 
+    overview: string;
     popularity: number;
     poster_path: string;
     release_date: string;
@@ -13,11 +13,39 @@ export interface Movies {
     video: boolean;
     vote_average: number;
     vote_count: number;
+    revenue: number;
+    runtime: number;
+    status: string;
+    genres: Genre[];
 }
 
 export interface MovieDto {
     page: number;
-    results:Movies[];
-    total_results:number;
+    results: Movies[];
+    total_results: number;
     total_pages: number;
+}
+
+export interface Genre {
+    id: number;
+    name: string;
+}
+
+export interface MovieVideoDto {
+    id: number;
+    results: MovieVideo[];
+}
+
+export interface MovieVideo {
+    site: string;
+    key: string;
+}
+export interface MovieImages {
+    backdrops: { file_path: string }[];
+}
+export interface MovieCredit {
+    cast: {
+        name: string;
+        profile_path: string;
+    }[];
 }
