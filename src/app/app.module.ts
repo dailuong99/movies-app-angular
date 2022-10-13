@@ -19,6 +19,9 @@ import { VideosEmbedComponent } from './components/videos-embed/videos-embed.com
 import {ImageModule} from 'primeng/image';
 import {CarouselModule} from 'primeng/carousel';
 import { GenresComponent } from './pages/genres/genres.component';
+import {InputTextModule} from 'primeng/inputtext';
+import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { TvshowComponent } from './pages/tvshow/tvshow.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { GenresComponent } from './pages/genres/genres.component';
     MovieComponent,
     VideosEmbedComponent,
     GenresComponent,
+    TvShowsComponent,
+    TvshowComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { GenresComponent } from './pages/genres/genres.component';
     PaginatorModule,
     TabViewModule,
     ImageModule,
-    CarouselModule
+    CarouselModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

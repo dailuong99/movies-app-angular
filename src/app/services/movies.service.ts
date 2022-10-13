@@ -34,6 +34,26 @@ export class MoviesService {
       }));
   }
 
+  //for tvshows
+  getTvShows(type: string = 'upcoming', count: number = 12) {
+    return this.http.get<MovieDto>(
+      `${this.baseUrl}/tv/${type}?api_key=${this.apiKey}`).pipe(switchMap(res => {
+        return of(res.results.slice(0, count))
+      }));
+  }
+
+  getTvShow(id: string) {
+    return this.http.get<Movies>(`${this.baseUrl}/tv/${id}?api_key=${this.apiKey}`)
+  }
+
+  getTvShowVideos(id: string) {
+    return this.http.get<MovieVideoDto>(
+      `${this.baseUrl}/tv/${id}/videos?api_key=${this.apiKey}`)
+      .pipe(switchMap(res => {
+        return of(res.results)
+      }));
+  }
+
   getMovieGenres() {
     return this.http.get<GenreDto>(
       `${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}`)
@@ -42,7 +62,7 @@ export class MoviesService {
       }));
   }
 
- getMoviesByGenre(genreId: string, pageNumber: number) {
+  getMoviesByGenre(genreId: string, pageNumber: number) {
     return this.http
       .get<MovieDto>(
         `${this.baseUrl}/discover/movie?with_genres=${genreId}&page=${pageNumber}&api_key=${this.apiKey}`
@@ -74,9 +94,18 @@ export class MoviesService {
       );
   }
 
-  searchMovies(page: number) {
+  searchMovies(page: number, searchValue?: string) {
+    const uri = searchValue ? '/search/movie' : '/movie/popular'
     return this.http.get<MovieDto>(
-      `${this.baseUrl}/movie/popular?page=${page}&api_key=${this.apiKey}`).pipe(switchMap(res => {
+      `${this.baseUrl}${uri}?page=${page}&query=${searchValue}&api_key=${this.apiKey}`).pipe(switchMap(res => {
+        return of(res.results)
+      }));
+  }
+
+  searchTvShows(page: number, searchValue?: string) {
+    const uri = searchValue ? '/search/movie' : '/movie/popular'
+    return this.http.get<MovieDto>(
+      `${this.baseUrl}${uri}?page=${page}&query=${searchValue}&api_key=${this.apiKey}`).pipe(switchMap(res => {
         return of(res.results)
       }));
   }

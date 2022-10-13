@@ -4,6 +4,8 @@ import { GenresComponent } from './pages/genres/genres.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { MoviesComponent } from './pages/movies/movies.component';
+import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { TvshowComponent } from './pages/tvshow/tvshow.component';
 
 const routes: Routes = [{
   path: '',
@@ -16,10 +18,16 @@ const routes: Routes = [{
   component: MovieComponent
 }, {
   path: 'movies/genres/:genreId',
-  component: MovieComponent
+  component: MoviesComponent
+}, {
+  path: 'tvshows/genres/:genreId',
+  component: TvShowsComponent
 }, {
   path: 'tvshows',
-  component: MoviesComponent
+  component: TvShowsComponent
+}, {
+  path: 'tvshow/:id',
+  component: TvshowComponent
 }, {
   path: 'genres',
   component: GenresComponent
