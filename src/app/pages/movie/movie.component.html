@@ -75,10 +75,8 @@
             <div class="grid">
                 <ng-container *ngFor="let movieImage of movieImages?.backdrops">
                     <div class="col-12 md:col-4 lg:col-4">
-                        <p-image [src]="imagesSizes.medium + movieImage.file_path"
-                         alt="Image"
-                         width="100%"
-                         [preview]="true"></p-image>
+                        <p-image [src]="imagesSizes.medium + movieImage.file_path" alt="Image" width="100%"
+                            [preview]="true"></p-image>
                     </div>
                 </ng-container>
             </div>
@@ -87,10 +85,11 @@
     <p-carousel [numVisible]="5" *ngIf="movieCredits" [value]="movieCredits.cast">
         <ng-template let-actor pTemplate="item">
             <div class="actor">
-                <img *ngIf="actor.profile_path" [src]="imagesSizes.medium + actor.profile_path" [alt]="actor.original_name">
+                <img *ngIf="actor.profile_path" [src]="imagesSizes.medium + actor.profile_path"
+                    [alt]="actor.original_name">
                 <span>{{actor.name}}</span>
             </div>
         </ng-template>
     </p-carousel>
-    <app-item-banner [items]="similarMovies"></app-item-banner>
+    <app-item-banner sdads [items]="similarMovies" title="Similar Movies"></app-item-banner>
 </ng-container>

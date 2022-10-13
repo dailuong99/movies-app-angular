@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { TvShow } from 'src/app/models/tv';
 import { TvShowsService } from 'src/app/services/tvshows.service';
 
